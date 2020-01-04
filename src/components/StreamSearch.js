@@ -31,7 +31,7 @@ export const StreamSearch = ({
       <div className="words">
         {stems
           .filter(stem => (messagesByStem[stem] || []).length > 1)
-          .sort((a, b) => messagesByStem[b].length - messagesByStem[a].length)
+          .sort((a, b) => messagesByStem[a].length - messagesByStem[b].length)
           .map(stem => (
             <Word
               key={stem}

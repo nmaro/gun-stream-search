@@ -4,7 +4,7 @@ import { useGun, getPub, getSet, getUUID } from "nicks-gun-utils";
 import { WordTokenizer, PorterStemmer } from "natural";
 import { uniq } from "lodash";
 
-const commonWords = require("../../etc/customwords.json");
+// const commonWords = require("../../etc/customwords.json");
 const tokenizer = new WordTokenizer();
 
 const Gun = require("gun/gun");
@@ -102,5 +102,6 @@ const getStems = text =>
     tokenizer
       .tokenize(typeof text === "string" ? text : "")
       .map(token => PorterStemmer.stem(token))
-      .filter(word => !commonWords.includes(word) && word.length > 3)
+      .filter(word => word.length > 2)
+    // .filter(word => !commonWords.includes(word) && word.length > 3)
   );
